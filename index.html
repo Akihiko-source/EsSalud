@@ -4,80 +4,82 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EsSalud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--az:#0B6FCB;--az2:#0A5CA8;--cy:#E3F4FB;--cy2:#D3EEF3;--bt:#0A74AB;--bt2:#0A5278;--tx:#12324A;--er:#FFE9E9;--ert:#8A1020;--sb:0 4px 10px rgba(10,60,100,.18)}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%}
-body{font-family:"Segoe UI",Roboto,system-ui,sans-serif;font-size:16px;color:var(--tx);background:#DCE7F3;display:flex;justify-content:center}
+body{font-family:"Nunito","Segoe UI",Roboto,system-ui,sans-serif;font-size:16px;color:var(--tx);background:#DCE7F3;display:flex;justify-content:center}
 .app{width:100%;max-width:430px;min-height:100vh;position:relative;overflow:hidden;background:#fff}
-section{display:none;min-height:100vh;flex-direction:column}section.on{display:flex}
+section{display:none;min-height:100vh;flex-direction:column}section.on{display:flex;animation:fi .35s ease}@keyframes fi{from{opacity:0;transform:translateY(8px)}}
 button,input,select{font:inherit}button{cursor:pointer}
 :focus-visible{outline:3px solid #FFC933;outline-offset:2px}
 svg.i{width:24px;height:24px;flex:none;fill:currentColor}
 .logo{display:flex;align-items:center;gap:8px;padding:14px 20px;color:var(--az);font-weight:800;font-size:34px;letter-spacing:-1px}
 /* Consulta */
 #s-consulta{background:#fff}
-.card{background:var(--az);color:#fff;margin:0 16px;padding:22px 22px 28px;flex:1;border-radius:18px 18px 0 0}
-.card h1{margin:0;text-align:center;font-weight:400;font-size:28px;line-height:1.15}.card h1 b{display:block}
-.vi{display:flex;align-items:center;gap:16px;justify-content:center;margin:14px 0 18px;font-size:28px;line-height:1.1}.vi b{display:block}
+.card{background:linear-gradient(170deg,#0F7BDB 0%,#0B6FCB 45%,#0A5CA8 100%);color:#fff;margin:0 14px;padding:28px 20px 34px;flex:1;border-radius:30px 30px 0 0;box-shadow:0 -6px 24px rgba(10,92,168,.25)}
+.card h1{margin:0;text-align:center;font-weight:300;font-size:32px;line-height:1.1}.card h1 b{display:block;font-weight:800}
+.vi{display:flex;align-items:center;gap:16px;justify-content:center;margin:14px 0 20px;font-size:26px;font-weight:300;line-height:1.1}.vi b{display:block;font-weight:800}
 .vi svg{width:76px;height:56px;fill:#fff}
 .f{margin:0 0 16px}
-.f>label,.lb{display:block;font-size:14px;font-weight:600;margin-bottom:4px}
-.row{display:flex;align-items:center;gap:12px;min-height:52px;border-bottom:2px solid rgba(255,255,255,.75)}
-.row:focus-within{border-bottom-color:#fff;background:rgba(255,255,255,.1)}
-.f.bad .row{border-bottom-color:#FFB4B4}
+.f>label,.lb{display:block;font-size:16px;font-weight:700;margin-bottom:6px}.bl{background:rgba(255,255,255,.08);border-radius:22px;padding:18px 16px 4px;margin-bottom:16px}.bl h2{margin:0 0 14px;font-size:15px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;display:flex;align-items:center;gap:10px}.bl h2 span{background:#fff;color:var(--az2);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:15px;letter-spacing:0}
+.row{display:flex;align-items:center;gap:12px;min-height:56px;padding:0 14px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.55);border-radius:14px;transition:background .2s,border-color .2s,box-shadow .2s}
+.row:focus-within{border-color:#fff;background:rgba(255,255,255,.22);box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+.f.bad .row{border-color:#FFB4B4}
 .row input,.row select{flex:1;min-width:0;width:100%;background:transparent;border:0;color:#fff;font-size:17px;padding:10px 0;outline:0;appearance:none}
-.row select option{color:#000}
+.row select{font-size:15px}.row select option{color:#000}
 .row input::placeholder{color:rgba(255,255,255,.88)}
 .dt{display:flex;gap:8px;flex:1}.dt input{text-align:center;width:100%}.dt input:last-child{flex:1.6}
-.err{display:none;gap:8px;align-items:flex-start;background:var(--er);color:var(--ert);border-radius:8px;padding:8px 10px;margin-top:8px;font-size:14px;font-weight:600}
+.err{display:none;gap:8px;align-items:flex-start;background:var(--er);color:var(--ert);border-radius:8px;padding:9px 12px;margin-top:8px;font-size:15px;font-weight:700}
 .f.bad .err,.err.on{display:flex}.err svg{width:18px;height:18px;margin-top:1px}
 .lk{background:none;border:0;color:#fff;font-weight:700;text-decoration:underline;padding:10px 0;min-height:44px;display:inline-flex;align-items:center;gap:6px}
 .ib{background:rgba(255,255,255,.2);border:0;color:#fff;border-radius:50%;width:44px;height:44px;display:grid;place-items:center}
 .ib[aria-expanded=true]{background:#fff;color:var(--az)}
-.pn{display:none;background:#fff;color:var(--tx);border-radius:14px;padding:14px;margin:6px 0 10px}.pn.on{display:block}
+.pn{display:none;background:#fff;color:var(--tx);border-radius:14px;padding:14px;margin:6px 0 10px}.pn.on{display:block;animation:fi .3s ease}
 .pn svg{width:100%;height:auto}.pn p{margin:8px 0 0;font-size:15px;line-height:1.4}
 .ck{display:flex;gap:12px;align-items:flex-start;margin:6px 0 4px}
 .ck input{width:28px;height:28px;margin:0;flex:none;accent-color:#fff}
-.ck span{font-size:15px;line-height:1.35}
+.ck span{font-size:16px;line-height:1.4}
 .acc{display:flex;gap:10px;margin-top:14px}
-.b{min-height:52px;border-radius:14px;border:2px solid #fff;font-weight:700;font-size:18px;padding:0 18px}
-.b.p{flex:1;background:#fff;color:var(--az2)}.b.p:disabled{background:rgba(255,255,255,.3);color:#fff;border-color:rgba(255,255,255,.5);cursor:not-allowed}
+.b{min-height:56px;border-radius:28px;border:2px solid #fff;font-weight:800;font-size:19px;padding:0 22px}
+.b.p{flex:1;background:#fff;color:var(--az2);box-shadow:0 6px 16px rgba(0,30,80,.28);transition:transform .15s}.b.p:not(:disabled):hover{transform:translateY(-1px)}.b.p:not(:disabled):active{transform:scale(.98)}.b.p:disabled{background:rgba(255,255,255,.3);color:#fff;border-color:rgba(255,255,255,.5);cursor:not-allowed}
 .b.s{background:transparent;color:#fff}
-.hint{min-height:20px;font-size:14px;margin:8px 2px 0}
+.hint{min-height:22px;font-size:15px;margin:12px 2px 0;text-align:center}
 .ld{position:absolute;inset:0;background:rgba(10,92,168,.94);color:#fff;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:5;font-size:19px;text-align:center;padding:30px}.ld.on{display:flex}
 .sp{width:52px;height:52px;border:6px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:g 0.9s linear infinite}@keyframes g{to{transform:rotate(360deg)}}
 /* Resultado */
-#s-resultado .rc{background:var(--cy2);margin:8px 18px;border-radius:30px;padding:24px 20px;text-align:center}
-.rc h2{margin:0 0 14px;color:#2A7FC1;font-weight:500;font-size:22px;text-align:left;line-height:1.3}
-.rc dl{display:grid;grid-template-columns:110px 1fr;gap:12px 10px;text-align:left;margin:0 0 18px;font-size:15px}
-.rc dt{font-weight:700}.rc dd{margin:0;overflow-wrap:anywhere}
+#s-resultado .rc{background:linear-gradient(180deg,#E8F7FB,#CDEBF2);box-shadow:var(--sb);margin:8px 16px;border-radius:32px;padding:26px 20px;text-align:center}
+.rc h2{margin:0 0 18px;color:#2A7FC1;font-weight:700;font-size:21px;text-align:left;line-height:1.3}
+.rc dl{display:grid;grid-template-columns:118px 1fr;gap:14px 12px;text-align:left;margin:0 0 22px;font-size:16px;line-height:1.35}
+.rc dt{font-weight:800;color:#0A5CA8}.rc dd{margin:0;overflow-wrap:anywhere}
 .rc .b{background:#3A7CC0;color:#fff;border-color:#3A7CC0;width:100%}
 .rc small{display:block;margin-top:12px}
 .az{background:var(--az);flex:1;margin-top:22px;padding:24px 20px;display:flex;flex-direction:column;gap:12px}
 .tl{background:#fff;border:2px solid var(--az);color:var(--az2);border-radius:14px;min-height:64px;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px}
 /* Login */
-#s-login{background:var(--cy);align-items:center;padding:20px 20px 28px}
+#s-login{background:radial-gradient(circle at 10% 6%,#fff 0,transparent 34%),radial-gradient(circle at 92% 96%,#C4E8F5 0,transparent 42%),var(--cy);align-items:center;padding:20px 20px 28px}
 .eh{display:flex;align-items:center;gap:10px;margin:18px 0 20px;font-weight:800;font-size:40px;line-height:.95;color:#0B6FA8}
 .eh i{font-style:normal;color:#19C3E6;display:block}
 .eh svg{width:64px;height:76px;fill:none;stroke:#0B6FA8;stroke-width:3}
-.lc{background:#fff;border-radius:20px;box-shadow:var(--sb);padding:22px 20px;width:100%;text-align:center}
-.lc h1{margin:0 0 16px;font-size:32px;font-weight:700}
+.lc{background:#fff;border-radius:26px;box-shadow:var(--sb);padding:22px 20px;width:100%;text-align:center}
+.lc h1{margin:0 0 18px;font-size:32px;font-weight:800}
 .usr{display:flex;align-items:center;gap:12px;text-align:left;background:#fff;box-shadow:var(--sb);border-radius:12px;padding:10px 12px;margin-bottom:14px;color:var(--bt)}
 .usr div{flex:1;color:var(--tx);font-size:14px}.usr b{font-size:16px;display:block}
 .usr button{background:none;border:0;color:#D6283A;width:44px;height:44px;display:grid;place-items:center}
-.lf{text-align:left;margin-bottom:12px}.lf label{display:block;font-weight:600;font-size:14px;margin-bottom:4px}
-.lf .row{border:2px solid #7DB8D4;border-radius:12px;padding:0 12px;min-height:52px;color:var(--bt)}
+.lf{text-align:left;margin-bottom:12px}.lf label{display:block;font-weight:700;font-size:16px;margin-bottom:6px}
+.lf .row{background:#F6FBFE;border:2px solid #9CCBE0;border-radius:14px;padding:0 12px;min-height:56px;color:var(--bt)}
 .lf.bad .row{border-color:#C8283A}.lf .row input{color:var(--tx)}.lf .row input::placeholder{color:#4B6F86}
-.lf .row:focus-within{background:#F2FAFE;border-color:var(--bt)}
+.lf .row:focus-within{background:#fff;border-color:var(--bt);box-shadow:0 0 0 3px rgba(10,116,171,.2)}
 .lf .err{display:none}.lf.bad .err{display:flex}
 .eye{background:none;border:0;color:var(--bt);width:44px;height:44px;display:grid;place-items:center}
-.bt{width:100%;min-height:54px;border:0;border-radius:27px;color:#fff;font-weight:700;font-size:19px;background:var(--bt);display:flex;align-items:center;justify-content:center;gap:10px}
-.bt:disabled{background:#8DB7CC;cursor:not-allowed}.bt.d{background:var(--bt2)}
+.bt{width:100%;min-height:54px;border:0;border-radius:27px;color:#fff;font-weight:700;font-size:19px;background:var(--bt);box-shadow:0 6px 14px rgba(10,116,171,.3);display:flex;align-items:center;justify-content:center;gap:10px}
+.bt:disabled{background:#8DB7CC;box-shadow:none;cursor:not-allowed}.bt.d{background:var(--bt2)}
 .bt .sp{width:22px;height:22px;border-width:3px;display:none}.bt.w .sp{display:block}
 .fg{background:none;border:0;color:var(--bt);font-weight:700;font-size:16px;min-height:48px;margin:6px 0;text-decoration:underline}
 .lc p{margin:8px 0 12px;font-size:16px;line-height:1.4}
 .chs{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:18px}
-.ch{background:var(--bt);color:#fff;border-radius:10px;padding:14px;font-size:14px;line-height:1.4;text-align:left;border:0;text-decoration:none;display:block;box-shadow:var(--sb)}
+.ch{background:var(--bt);color:#fff;border-radius:14px;padding:15px;font-size:15px;line-height:1.4;text-align:left;border:0;text-decoration:none;display:block;box-shadow:var(--sb)}
 .ch u{font-weight:700}.ver{margin-top:14px;color:#3F6075;font-size:13px}
 .hp{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:#0B4F8F;color:#fff;font-weight:800;font-size:20px}
 /* Home */
@@ -137,11 +139,13 @@ svg.i{width:24px;height:24px;flex:none;fill:currentColor}
   <h1 id="t1">¿Dónde me <b>atiendo?</b></h1>
   <div class="vi"><svg viewBox="0 0 90 60" aria-hidden="true"><use href="#gr"/></svg><div>Valida tu <b>identidad</b></div></div>
   <div class="err" id="gerr" role="alert"><svg class="i"><use href="#al"/></svg><span id="gmsg"></span><button type="button" class="lk" id="retry" hidden style="color:var(--ert);min-height:0;padding:0">Reintentar</button></div>
-  <div class="f" style="margin-top:14px"><label for="tipo">Tipo de documento</label>
-   <div class="row"><svg class="i"><use href="#id"/></svg><select id="tipo"><option>DNI · Documento Nacional de Identidad</option></select></div></div>
+  <div class="bl"><h2><span>1</span>Identificación</h2>
+  <div class="f"><label for="tipo">Tipo de documento</label>
+   <div class="row"><svg class="i"><use href="#id"/></svg><select id="tipo"><option>DNI · Documento de identidad</option></select></div></div>
   <div class="f" id="f-dni"><label for="dni">Número de documento</label>
    <div class="row"><svg class="i"><use href="#id"/></svg><input id="dni" inputmode="numeric" maxlength="8" placeholder="8 números" aria-describedby="e-dni" autofocus></div>
-   <div class="err" id="e-dni"><svg class="i"><use href="#al"/></svg><span></span></div></div>
+   <div class="err" id="e-dni"><svg class="i"><use href="#al"/></svg><span></span></div></div></div>
+  <div class="bl"><h2><span>2</span>Verificación</h2>
   <div class="f" id="f-cui"><label for="cui">Dígito verificador de DNI (CUI)</label>
    <div class="row"><svg class="i"><use href="#id"/></svg><input id="cui" maxlength="1" autocapitalize="characters" placeholder="1 número o letra" aria-describedby="e-cui">
     <button type="button" class="ib" id="ayuda" aria-expanded="false" aria-controls="pcui" aria-label="¿Dónde lo encuentro?"><svg class="i"><use href="#inf"/></svg></button></div>
@@ -162,11 +166,11 @@ svg.i{width:24px;height:24px;flex:none;fill:currentColor}
   <div class="f" id="f-fec"><span class="lb" id="lf">Fecha de nacimiento</span>
    <div class="row"><svg class="i"><use href="#cal"/></svg>
     <div class="dt" role="group" aria-labelledby="lf"><input id="dd" inputmode="numeric" maxlength="2" placeholder="DD" aria-label="Día"><input id="mm" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Mes"><input id="yy" inputmode="numeric" maxlength="4" placeholder="AAAA" aria-label="Año"></div></div>
-   <div class="err" id="e-fec"><svg class="i"><use href="#al"/></svg><span></span></div></div>
+   <div class="err" id="e-fec"><svg class="i"><use href="#al"/></svg><span></span></div></div></div>
   <div class="f" id="f-ok"><label class="ck"><input type="checkbox" id="ok" aria-describedby="e-ok"><span>Acepto la cláusula informativa sobre tratamiento de datos personales.</span></label>
    <button type="button" class="lk" id="leer">Leer cláusula informativa</button>
    <div class="err" id="e-ok"><svg class="i"><use href="#al"/></svg><span></span></div></div>
-  <div class="acc"><button type="button" class="b s" id="limpiar">Limpiar</button><button class="b p" id="go" disabled>Consultar</button></div>
+  <div class="acc"><button class="b p" id="go" disabled>Consultar</button></div>
   <div class="hint" id="hint" aria-live="polite"></div>
   <div class="ld" id="ld" role="status" aria-live="polite"><div class="sp"></div><div>Consultando tu centro de atención…</div></div>
  </form>
@@ -275,7 +279,7 @@ $('#acep').onclick=()=>{$('#ok').checked=true;check('ok',true);refresh();close($
 $$('[data-cl]').forEach(b=>b.onclick=()=>close(b.closest('.md')));
 $$('.md').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)close(m)}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=$('.md.on');if(m)close(m);else if($('#dr').classList.contains('on'))drawer(false)}});
-$('#limpiar').onclick=()=>{$('#fc').reset();$$('#fc .f').forEach(f=>setErr(f,''));gerr();ayuda(false);refresh();$('#dni').focus()};
+function limpiar(){$('#fc').reset();$$('#fc .f').forEach(f=>setErr(f,''));gerr();ayuda(false);refresh()}
 $('#fc').addEventListener('submit',async e=>{e.preventDefault();await consultar()});
 $('#retry').onclick=()=>consultar();
 async function consultar(){
@@ -283,16 +287,16 @@ async function consultar(){
  gerr();$('#ld').classList.add('on');await wait(1300);$('#ld').classList.remove('on');
  if(!navigator.onLine){gerr('No pudimos conectarnos. Revisa tu internet e inténtalo de nuevo.',true);return}
  const r=DB[$('#dni').value],iso=`${$('#yy').value}-${$('#mm').value.padStart(2,'0')}-${$('#dd').value.padStart(2,'0')}`;
- if(!r){setErr(box('dni'),'No encontramos ese DNI. Revisa los 8 números.');$('#dni').focus();return}
- if(r.cui!==$('#cui').value){setErr(box('cui'),'Ese dígito no coincide. Míralo junto a tu DNI, después del guion.');ayuda(true);$('#cui').focus();return}
- if(r.f!==iso){setErr(box('fec'),'La fecha no coincide con la registrada. Revísala.');$('#dd').focus();return}
+ if(!r){gerr('No encontramos coincidencias. Revisa tus datos.');setErr(box('dni'),'No encontramos ese DNI. Revisa los 8 números.');$('#dni').focus();return}
+ if(r.cui!==$('#cui').value){gerr('No encontramos coincidencias. Revisa tus datos.');setErr(box('cui'),'Ese dígito no coincide. Míralo junto a tu DNI, después del guion.');ayuda(true);$('#cui').focus();return}
+ if(r.f!==iso){gerr('No encontramos coincidencias. Revisa tus datos.');setErr(box('fec'),'La fecha no coincide con la registrada. Revísala.');$('#dd').focus();return}
  $('#rdni').textContent=$('#dni').value;
  const rows=[['Centro Asistencial',r.centro],['Dirección del Centro',r.dir],['Red Prestacional / Asistencial',r.red],['Tipo de Seguro',r.tipo],['Afiliado a',r.afil],['Periodo de Cobertura',r.per]];
  $('#rd').replaceChildren(...rows.flatMap(([a,b])=>{const t=document.createElement('dt'),d=document.createElement('dd');t.textContent=a;d.textContent=b;return[t,d]}));
  const n=new Date(),p=x=>String(x).padStart(2,'0');$('#rh').textContent=`${p(n.getDate())}/${p(n.getMonth()+1)}/${n.getFullYear()} ${p(n.getHours())}:${p(n.getMinutes())} h`;
  go('s-resultado');
 }
-$('#nueva').onclick=()=>{$('#limpiar').click();go('s-consulta');$('#dni').focus()};
+$('#nueva').onclick=()=>{limpiar();go('s-consulta');$('#dni').focus()};
 $('#irlogin').onclick=()=>go('s-login');$('#irconsulta').onclick=()=>go('s-consulta');
 /* ---------- LOGIN ---------- */
 let rem=store.get('ed_user');if(rem===null&&!store.get('ed_off')){rem='12345678'}
